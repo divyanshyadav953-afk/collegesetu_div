@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="A friendly offline-first starting point for students learning computers, typing and coding before college.">
+  <title>CollegeSetu | Your College Journey Starts Here</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#home" data-page="home" aria-label="CollegeSetu home"><span class="brand-icon">C</span><span>CollegeSetu</span></a>
+  <nav aria-label="Main navigation">
+    <button class="nav-link active" data-page="home">Home</button>
+    <button class="nav-link" data-page="learn">Learn</button>
+    <button class="nav-link" data-page="typing">Typing</button>
+    <button class="nav-link" data-page="coding">Coding</button>
+    <button class="nav-link nav-ai" data-page="ai">✨ Ask AI</button>
+  </nav>
+</header>
+
+<main>
+  <!-- ═══════════════════════ HOME PAGE ═══════════════════════ -->
+  <section id="home" class="page active-page">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">YOUR JOURNEY STARTS HERE ✨</span>
+        <h1>College is coming.<br><span>Let's get ready!</span></h1>
+        <p class="hero-text">Just finished Class 12? New to computers or coding? No problem. Start small, learn at your own pace, and build your confidence before college begins.</p>
+        <button class="primary-button" data-go="learn">Start my journey <span aria-hidden="true">→</span></button>
+        <p class="small-note">No experience needed. Just curiosity.</p>
+      </div>
+      <div class="hero-art" aria-label="Rocket representing your learning journey">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="planet">🚀</div>
+        <div class="float-card card-top">💡 One small step</div>
+        <div class="float-card card-bottom">🎯 Your future, your pace</div>
+      </div>
+    </section>
+    <section class="section-block">
+      <div class="section-heading"><span class="eyebrow">START FROM ZERO</span><h2>What would you like to explore?</h2><p>Pick one thing. You don't have to learn everything today.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card"><div class="feature-icon purple">🖥️</div><h3>Computer Basics</h3><p>Learn how to use a computer, manage files and explore the internet.</p><button class="text-button" data-go="learn">Let's explore →</button></article>
+        <article class="feature-card"><div class="feature-icon orange">⌨️</div><h3>Daily Typing</h3><p>Practise a little every day and improve your typing accuracy.</p><button class="text-button" data-go="typing">Let's practise →</button></article>
+        <article class="feature-card"><div class="feature-icon green">💻</div><h3>Try Coding</h3><p>Discover how people give instructions to computers.</p><button class="text-button" data-go="coding">Let's discover →</button></article>
+        <article class="feature-card"><div class="feature-icon ai-icon">✨</div><h3>Ask AI</h3><p>Chat with a local AI assistant — college tips, coding help, and more.</p><button class="text-button" data-go="ai">Ask a question →</button></article>
+      </div>
+    </section>
+    <section class="welcome-strip"><div class="welcome-emoji">🌱</div><div><h2>It's okay to be a beginner.</h2><p>You don't need to know everything before college. You only need a place to start.</p><p class="progress-summary" id="home-progress">Your progress is saved on this device.</p></div></section>
+  </section>
+
+  <!-- ═══════════════════════ LEARN PAGE ══════════════════════ -->
+  <section id="learn" class="page">
+    <div class="subpage-header"><span class="eyebrow">YOUR FIRST STEPS 🌱</span><h1>Let's learn together!</h1><p>No difficult words. No pressure. Start with what you know.</p></div>
+    <div class="lesson-layout">
+      <aside class="lesson-menu"><h2>Your first lessons</h2><p class="muted-text">Choose one to begin.</p>
+        <button class="lesson-choice active" data-lesson="computer"><span>🖥️</span><span><strong>1. Meet your computer</strong><small>What does a computer do?</small></span><span class="lesson-status" data-status="computer">○</span></button>
+        <button class="lesson-choice" data-lesson="files"><span>📁</span><span><strong>2. Files and folders</strong><small>Keep things organised.</small></span><span class="lesson-status" data-status="files">○</span></button>
+        <button class="lesson-choice" data-lesson="internet"><span>🌐</span><span><strong>3. Explore the internet</strong><small>Websites and browsers.</small></span><span class="lesson-status" data-status="internet">○</span></button>
+        <button class="lesson-choice" data-lesson="words"><span>💬</span><span><strong>4. Learn tech words</strong><small>Easy English meanings.</small></span><span class="lesson-status" data-status="words">○</span></button>
+        <p class="progress-summary" id="lesson-progress">0 of 4 lessons completed</p>
+      </aside>
+      <article class="lesson-content"><div id="lesson-body" aria-live="polite"></div></article>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ TYPING PAGE ══════════════════════ -->
+  <section id="typing" class="page">
+    <div class="subpage-header"><span class="eyebrow">A LITTLE PRACTICE EACH DAY</span><h1>Let's get comfortable typing ⌨️</h1><p>Start slowly. Accuracy first, speed later.</p></div>
+    <section class="typing-panel">
+      <div class="typing-topline"><div><span class="eyebrow">YOUR PRACTICE</span><h2>One minute typing challenge</h2></div><span class="timer-pill" id="timer">60 sec</span></div>
+      <p class="muted-text">Type the paragraph below as accurately as you can. The timer starts when you begin typing.</p>
+      <div class="typing-prompt" id="typing-prompt">Learning one small thing every day can make a big difference. I will practise patiently, ask questions, and keep improving my computer skills.</div>
+      <label class="sr-only" for="typing-input">Type the paragraph shown above</label>
+      <textarea id="typing-input" rows="5" placeholder="Click here and start typing..." spellcheck="false" autocomplete="off"></textarea>
+      <div class="typing-actions"><button class="primary-button" id="typing-start">Start / Reset</button><button class="secondary-button" id="typing-finish">Finish now</button></div>
+      <p class="feedback" id="typing-message" aria-live="polite">Ready when you are. Your timer begins with your first keystroke.</p>
+      <div class="stats-grid"><div class="stat-card"><span>Time left</span><strong id="stat-time">60s</strong></div><div class="stat-card"><span>Typing speed</span><strong id="stat-wpm">0 WPM</strong></div><div class="stat-card"><span>Accuracy</span><strong id="stat-accuracy">100%</strong></div><div class="stat-card"><span>Correct characters</span><strong id="stat-correct">0</strong></div></div>
+      <p class="progress-summary" id="typing-best">Best practice: not recorded yet.</p>
+    </section>
+  </section>
+
+  <!-- ══════════════════════ CODING PAGE ══════════════════════ -->
+  <section id="coding" class="page">
+    <div class="subpage-header"><span class="eyebrow">EXPLORE AT YOUR OWN PACE</span><h1>Curious about coding? 💻</h1><p>You can start without knowing any programming language.</p></div>
+    <div class="language-grid">
+      <button class="language-card selected" data-language="Python"><span>🐍</span><h3>Python</h3><p>A friendly starting point for many beginners.</p></button>
+      <button class="language-card" data-language="C"><span>⚙️</span><h3>C</h3><p>Explore the basics of programming and how computers work.</p></button>
+      <button class="language-card" data-language="C++"><span>➕</span><h3>C++</h3><p>Try another popular language used in problem-solving.</p></button>
+      <button class="language-card" data-language="Java"><span>☕</span><h3>Java</h3><p>Discover a language used in many kinds of software.</p></button>
+      <button class="language-card" data-language="JavaScript"><span>🌐</span><h3>JavaScript</h3><p>Learn how websites can respond when you click a button.</p></button>
+    </div>
+    <section class="code-demo">
+      <div class="code-demo-head"><div><span class="eyebrow">FIRST CODE EXAMPLE</span><h2 id="code-title">Python says hello</h2></div><span class="demo-tag">Example only</span></div>
+      <pre><code id="code-example">print("Hello, college!")</code></pre>
+      <p id="code-explanation">This tells Python to show the words Hello, college! on the screen.</p>
+      <div class="example-output"><strong>Expected output</strong><code id="code-output">Hello, college!</code></div>
+      <p class="muted-text">This is a learning preview; it does not run code on your device. Choose a language above to see its example.</p>
+    </section>
+    <div class="notice">You don't need to learn all five. Explore them and choose where to begin.</div>
+  </section>
+
+  <!-- ═══════════════════════ AI CHAT PAGE ════════════════════ -->
+  <section id="ai" class="page">
+    <div class="subpage-header">
+      <span class="eyebrow">YOUR LOCAL AI ASSISTANT ✨</span>
+      <h1>Ask CollegeSetu AI</h1>
+      <p>Powered by Qwen 3.5 4B running locally on your device. Ask anything about college, coding, or learning.</p>
+    </div>
+
+    <div class="chat-wrapper">
+      <!-- Status bar -->
+      <div class="chat-status-bar">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="ai-status">Checking connection…</span>
+      </div>
+
+      <!-- Message area -->
+      <div class="chat-messages" id="chatMessages" aria-live="polite" aria-label="Chat conversation">
+        <div class="chat-welcome">
+          <div class="chat-welcome-icon">🤖</div>
+          <h3>Hello! I'm CollegeSetu AI</h3>
+          <p>I can help you with college choices, coding basics, study tips, and more. What would you like to know?</p>
+          <div class="starter-chips">
+            <button class="chip" data-prompt="What stream should I choose after Class 12?">What stream should I choose?</button>
+            <button class="chip" data-prompt="How do I start learning Python for beginners?">Start learning Python</button>
+            <button class="chip" data-prompt="What skills should I develop before college?">Skills before college</button>
+            <button class="chip" data-prompt="Explain what AI and Machine Learning is in simple words.">What is AI/ML?</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input area -->
+      <form class="chat-input-area" id="chatForm" autocomplete="off">
+        <label class="sr-only" for="userInput">Your message</label>
+        <textarea
+          id="userInput"
+          rows="1"
+          placeholder="Ask anything — college, coding, career, or study tips…"
+          maxlength="2000"
+          spellcheck="true"
+        ></textarea>
+        <button type="submit" class="chat-send-btn" id="sendButton" aria-label="Send message">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+      <p class="chat-footer-note">AI responses may be inaccurate. Always verify important information from official sources.</p>
+    </div>
+  </section>
+</main>
+
+<footer><a class="footer-brand" href="#home" data-page="home">CollegeSetu</a><p>Made for beginners, one small step at a time. 💜</p><p class="footer-note">Local-first learning website · Progress stays in this browser</p></footer>
+</body>
+</html>
